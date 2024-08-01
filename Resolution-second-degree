@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+
+void equation(double a, double b, double c) {
+    double delta, x1, x2, partieReelle, partieImaginaire;
+
+    delta = b * b - 4 * a * c;
+
+    if (delta == 0) {
+        x1 = -b / (2 * a);
+        printf("L'équation a une racine double : %.2lf\n", x1);
+    }
+
+    else if (delta > 0) {
+        x1 = (-b + sqrt(delta)) / (2 * a);
+        x2 = (-b - sqrt(delta)) / (2 * a);
+        printf("L'équation a deux racines réelles : %.2lf et %.2lf\n", x1, x2);
+    }
+
+    else {
+        partieReelle = -b / (2 * a);
+        partieImaginaire = sqrt(-delta) / (2 * a);
+        printf("L'équation a deux racines complexes : %.2lf + %.2lfi et %.2lf - %.2lfi\n", 
+                partieReelle, partieImaginaire, partieReelle, partieImaginaire);
+    }
+}
+
+int main() {
+    double a, b, c;
+
+    printf("Entrez les coefficients a, b et c : ");
+    scanf("%lf %lf %lf", &a, &b, &c);
+
+    equation(a, b, c);
+
+    return 0;
+}
